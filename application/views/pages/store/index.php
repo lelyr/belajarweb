@@ -1,27 +1,39 @@
 <div class="container-fluid">
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Store</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-    </div>
+	<!-- Page Heading -->
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 class="h3 mb-0 text-gray-800">Store</h1>
+		<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+				class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+	</div>
 
-    <a href="a" class="btn btn-sm shadow-sm mb-3" style="background-color: #0F52BA; color: #fff8e7;">Add Store</a>
+	<a href="#" class="btn btn-primary btn-sm shadow-sm mb-3">Tambah Store</a>
 
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="table" width="100%" cellspacing="0" style="margin: 0 auto;">
-                <thead>
-                    <tr style="text-align: center;">
-                        <th style="text-align: center;">No.</th>
-                        <th style="text-align: center;">Store Name</th>
-                        <th style="text-align: center;">Owner</th>
-                        <th style="text-align: center;">Action</th>
-                    </tr>
-                    <thead>
-                    <tbody>
-                     
-                    </tbody>
-            </table>
-        </div>
-    </div>
+	<div class="card">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="table" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>No.</th>
+							<th>Nama Store</th>
+							<th>Pemilik Toko</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php 
+						$i = 1;
+              foreach($stores as $items) : ?>
+							<td><?php echo $i++ ?></td>
+							<td><?php echo $items["StoreName"] ;?></td>
+							<td><?php echo $items["Username"] ;?></td>
+							<td>
+								<a href="<?php echo base_url('store/viewstore/'.$items["StoreID"]) ?>" target="_blank" class="btn btn-primary">Detail</a>
+							</td>
+					<?php endforeach ;?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
