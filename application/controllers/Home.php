@@ -26,7 +26,7 @@ class Home extends CI_Controller {
 		$this->load->view('theme/landing', $data);
 	}
 
-  public function checkout()
+  public function order()
 	{
 
     
@@ -38,8 +38,8 @@ class Home extends CI_Controller {
       $data_product = $this->product_model->getProductById($id);
   
       $data = array(
-        'title' => "Checkout",
-        "page" => 'pages/landing/checkout',
+        'title' => "Order",
+        "page" => 'pages/landing/order',
         'product' => $data_product
       );
 
@@ -60,8 +60,8 @@ class Home extends CI_Controller {
         $data_product = $this->product_model->getProductById($id);
     
         $data = array(
-          'title' => "Checkout",
-          "page" => 'pages/landing/checkout',
+          'title' => "Order",
+          "page" => 'pages/landing/order',
           'product' => $data_product
         );
 
@@ -79,7 +79,7 @@ class Home extends CI_Controller {
           'Status' => 0
         );
 
-        $this->db->insert('checkouts', $data);
+        $this->db->insert('orders', $data);
 
         $data1 = array(
           'title' => "Success",

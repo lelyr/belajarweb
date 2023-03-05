@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 	<!-- Sidebar - Brand -->
-	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('dashboard'); ?>">
 		<div class="sidebar-brand-icon rotate-n-13">
 			<i class="fas fa-utensils"></i>
 		</div>
@@ -21,19 +21,26 @@
 	<li class="nav-item active">
 		<a class="nav-link" href="<?php echo base_url('product'); ?>">
 			<i class="fas fa-archive"></i>
-			<span>Product</span></a>
+			<span>Menu</span></a>
+	</li>
+
+	<li class="nav-item active">
+		<a class="nav-link" href="<?php echo base_url('order'); ?>">
+			<i class="fas fa-cart-plus"></i>
+			<span>Order</span></a>
+	</li>
+	
+
+	<li class="nav-item active">
+		<a class="nav-link" href="<?php echo base_url('order'); ?>">
+			<i class="fas fa-history"></i>
+			<span>Order Status</span></a>
 	</li>
 
 	<li class="nav-item active">
 		<a class="nav-link" href="<?php echo base_url('store'); ?>">
 			<i class="fas fa-building"></i>
-			<span>Store</span></a>
-	</li>
-
-	<li class="nav-item active">
-		<a class="nav-link" href="<?php echo base_url('checkout'); ?>">
-			<i class="fas fa-cart-plus"></i>
-			<span>Checkout</span></a>
+			<span>About</span></a>
 	</li>
 
 

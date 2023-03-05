@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Checkout extends CI_Controller {
+class Order extends CI_Controller {
 
     public function __construct(){
 
@@ -12,29 +12,26 @@ class Checkout extends CI_Controller {
             redirect('user/login');
         }
 
-        $this->load->model(array('checkout_model'));
+        $this->load->model(array('order_model'));
         $this->load->helper(array('form', 'url', 'date'));
         $this->load->library('form_validation');
     }
 
-	public function index()
-	{
-
-    $data = array(
-      'title' => 'Checkout',
-      'page' => 'pages/checkout/index',
-      'checkout' => $this->checkout_model->getCheckout(1)
-    );
+	public function index() {
+        $data = array(
+        'title' => 'Order',
+        'page' => 'pages/order/index',
+        'order' => $this->order_model->getOrder(1)
+        );
 
 		$this->load->view('theme/index', $data);
 	}
 
-    public function confirm()
-	{
-		$CheckoutID = $this->input->get('id');
+    public function confirm() {
+		$OrderID = $this->input->get('id');
 		$Status = $this->input->get('Status');
-		if ($this->checkout_model->confirmPayment($CheckoutID, $Status)) {
-			redirect('checkout/index');
+		if ($this->order_model->confirmPayment($OrderID, $Status)) {
+			redirect('order/index');
 		}
 	}
 }

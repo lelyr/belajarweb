@@ -1,11 +1,11 @@
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Product</h1>
+		<h1 class="h3 mb-0 text-gray-800">All Menu</h1>
 		<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 	</div>
 
-	<a href="<?php echo base_url() . 'Product/addProductView'; ?>" class="btn btn-primary btn-sm shadow-sm mb-3">Tambah Produk</a>
+	<a href="<?php echo base_url() . 'Product/addProductView'; ?>" class="btn btn-primary btn-sm shadow-sm mb-3">Tambah Menu Baru</a>
 
 	<div class="card">
 		<div class="card-body">
@@ -14,7 +14,8 @@
 					<thead>
 						<tr>
 							<th>No.</th>
-							<th>Nama Product</th>
+							<th>Foto Menu</th>
+							<th>Nama Menu</th>
 							<th>Kategori</th>
 							<th>Price</th>
 							<th>Action</th>
@@ -29,7 +30,7 @@
 							?>
 								<tr>
 									<td><?= $i++; ?></td>
-									<td><img src="<?php echo base_url('assets/img').$product['ProductID'];?>" alt="tab1" class="img img-responsive"></td>
+									<td><img src="<?php echo base_url('assets/images/'.$product['ProductID'].'.jpg');?>" class="img img-responsive" style="height: 150px;"></td>
 									<td><?= $product['ProductName']; ?></td>
 									<td><?= $product['Category']; ?></td>
 									<td><?= $product['Price']; ?></td>
@@ -52,7 +53,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Edit Produk</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Edit Menu</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -63,9 +64,9 @@
 						<div class="col-lg-12 d-flex justify-content-center">
 							<input type="hidden" id="product_id" name="ProductID" value="">
 							<div class="form-group mb-3 w-50">
-								<label>Nama Produk</label>
+								<label>Nama Menu</label>
 								<input type="text" id="produk" name="ProductName" class="form-control">
-								<p class="error-label mb-0 d-none text-danger">Nama produk tidak boleh kosong</p>
+								<p class="error-label mb-0 d-none text-danger">Nama Menu tidak boleh kosong</p>
 							</div>
 						</div>
 						<div class="col-lg-12 d-flex justify-content-center">

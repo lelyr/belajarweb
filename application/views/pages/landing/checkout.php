@@ -69,7 +69,7 @@
 					</ol>
 				</div>
 
-				<form action="<?php echo base_url('home/checkout/'.$product["ProductID"]) ;?>" method="POST" enctype="multipart/form-data">
+				<form action="<?php echo base_url('home/order/'.$product["ProductID"]) ;?>" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="">Upload Bukti Pembayaran</label>
 						<input type="file" class="form-control my-2" name="image" id="image" />

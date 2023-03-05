@@ -22,7 +22,7 @@
                     <tbody>
                     <?php
                         $i = 1;
-                        foreach($checkout as $c) : ?>
+                        foreach($order as $c) : ?>
                             <tr>
                             <td><?= $i++ ;?></td>
                             <td><?= $c['ProductName'] ;?></td>
@@ -39,7 +39,7 @@
                             <td>
                                 <?php
                                     if ($c['Status'] == 0) {
-                                        echo '<a href="'.base_url('Checkout/confirm?id='.$c['CheckoutID'].'&Status=1').'">Confirm</a>';
+                                        echo '<a href="'.base_url('Order/confirm?id='.$c['OrderID'].'&Status=1').'">Confirm</a>';
                                     } else {
                                         echo 'Verified';
                                     }
