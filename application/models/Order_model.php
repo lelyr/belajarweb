@@ -13,6 +13,8 @@ class Order_model extends CI_Model
         $this->db->select('products.ProductName');
         // memilih table parent untuk join
         $this->db->from('orders');
+        // sorting order berdasarkan CreatedAt
+        $this->db->order_by("CreatedAt", "desc");
         // join ke table lain
         $this->db->join('products', 'products.ProductID = orders.ProductID');
         $this->db->join('stores', 'products.StoreID = stores.StoreID');

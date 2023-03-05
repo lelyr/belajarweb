@@ -38,4 +38,11 @@ class Product_model extends CI_Model {
   {
     return $this->db->update('products', $data, array('ProductID' => $data['ProductID']));
   }
+
+  public function insertOrder($data)
+  {
+    return $this->db->insert('orders', $data);
+  }
+    
+
 }

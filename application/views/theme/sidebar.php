@@ -32,9 +32,9 @@
 	
 
 	<li class="nav-item active">
-		<a class="nav-link" href="<?php echo base_url('order'); ?>">
+		<a class="nav-link" href="<?php echo base_url('history'); ?>">
 			<i class="fas fa-history"></i>
-			<span>Order Status</span></a>
+			<span>History</span></a>
 	</li>
 
 	<li class="nav-item active">

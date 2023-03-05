@@ -12,26 +12,49 @@ class Order extends CI_Controller {
             redirect('user/login');
         }
 
-        $this->load->model(array('order_model'));
+        $this->load->model(array('product_model'));
         $this->load->helper(array('form', 'url', 'date'));
         $this->load->library('form_validation');
     }
 
-	public function index() {
-        $data = array(
-        'title' => 'Order',
-        'page' => 'pages/order/index',
-        'order' => $this->order_model->getOrder(1)
-        );
+	public function index()
+	{
+
+    $product = $this->product_model->getData();
+
+    $data = array(
+      'title' => 'Product',
+      'page' => 'pages/order/index',
+      'product' => $product
+    );
 
 		$this->load->view('theme/index', $data);
 	}
 
-    public function confirm() {
-		$OrderID = $this->input->get('id');
-		$Status = $this->input->get('Status');
-		if ($this->order_model->confirmPayment($OrderID, $Status)) {
-			redirect('order/index');
-		}
+  public function confirmOrder()
+  {
+    $id = $this->input->post('ProductID');
+		$data = $this->product_model->getProductById($id);
+
+    echo json_encode($data);
+  }
+
+  public function newOrder() {
+
+    // $format = "%Y-%m-%d %h:%m:%s";
+
+    $date = new DateTime("now", new DateTimeZone('Asia/Jakarta') );
+    $CreatedAt     = $date->format('Y-m-d H:i:s');
+    $id = $this->input->post('ProductID');
+
+		$data = array(
+      'ProductID' => $id,
+      'UserID' => 1,
+      'CreatedAt' => $CreatedAt,
+      'Status' => 0,
+    );
+    if ($this->product_model->insertOrder($data)) {
+      redirect('History/index');
+    }
 	}
 }

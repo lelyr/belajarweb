@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Order extends CI_Controller {
+class History extends CI_Controller {
 
     public function __construct(){
 
@@ -17,24 +17,21 @@ class Order extends CI_Controller {
         $this->load->library('form_validation');
     }
 
-	public function index()
-	{
-
-    $data = array(
-      'title' => 'Order',
-      'page' => 'pages/order_history/index',
-      'order' => $this->order_model->getOrder(1)
-    );
+	public function index() {
+        $data = array(
+        'title' => 'History',
+        'page' => 'pages/history/index',
+        'order' => $this->order_model->getOrder(1)
+        );
 
 		$this->load->view('theme/index', $data);
 	}
 
-    public function confirm()
-	{
+    public function confirm() {
 		$OrderID = $this->input->get('id');
 		$Status = $this->input->get('Status');
 		if ($this->order_model->confirmPayment($OrderID, $Status)) {
-			redirect('order_history/index');
+			redirect('history/index');
 		}
 	}
 }
